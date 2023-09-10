@@ -1,0 +1,14 @@
+ports                       = [22, 443, 3306, 80, 27017]
+instance_type               = "t2.micro"
+region                      = "ap-south-1"
+image_name                  = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+key_name                    = "tf-key"
+vpc_cidr                    = "10.0.0.0/16"
+project_name                = "aws-tf-practice"
+public_subnet_az1_cidr      = "10.0.0.0/24"
+public_subnet_az2_cidr      = "10.0.1.0/24"
+private_app_subnet_az1_cidr = "10.0.2.0/24"
+private_app_subnet_az2_cidr = "10.0.3.0/24"
+domain_name = "example.com"
+alternative_name = ".example.com"
+iamusers = [ "a", "b", "c", "d" ]

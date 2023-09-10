@@ -1,0 +1,33 @@
+#Create IAM users
+resource "aws_iam_user" "user01" {
+  name = "user01"
+}
+
+resource "aws_iam_user" "user02" {
+  name = "user02"
+}
+
+# create iam_group
+resource "aws_iam_group" "user_group" {
+  name = "Developer"
+}
+
+#add user to the group
+resource "aws_iam_group_membership" "assigment" {
+  name = "tf-testing-group-membership"
+
+  users = [
+    aws_iam_user.user01.name,
+    aws_iam_user.user02.name,
+  ]
+
+  group = aws_iam_group.user_group.name
+}
+
+#attach policy to group
+resource "aws_iam_group_policy_attachment" "attachment" {
+  group      = aws_iam_group.user_group.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
+

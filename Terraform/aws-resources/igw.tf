@@ -1,0 +1,9 @@
+# Create an internet gateway and attach it to the VPC
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = "${var.project_name}-igw"
+  }
+}
